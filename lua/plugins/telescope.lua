@@ -24,10 +24,6 @@ return {
 
             -- ezpz search with rg
             vim.keymap.set('n', '<C-f>', builtin.live_grep, {})
-
-            -- documentation searching
-            -- see if we can make this a quarter top split
-            vim.keymap.set('n', "<leader>man", builtin.help_tags, {})
         end,
     }
 }

@@ -6,10 +6,7 @@ new_command("Clean",
         print("Clearing background buffers...")
         vim.cmd("%bd|e#|bd#")
         vim.api.nvim_win_set_cursor(0, {r,c}) -- now we go back to where we were before
-    end,
-    {
-        nargs = 0
-    }
+    end, { nargs = 0 }
 )
 
 

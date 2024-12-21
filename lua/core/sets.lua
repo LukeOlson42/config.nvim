@@ -26,20 +26,25 @@ set.smartcase = true
 set.showmode = false
 set.showcmd = false
 
+-- Miscellaneous
 set.lazyredraw = true
 set.linebreak = true
+
 set.splitright = true
+set.splitbelow = true
+
 set.swapfile = false
+set.inccommand = "split"
+
 
 -- I like having the current line highlighted
 -- with a nice gold color :)
 vim.api.nvim_set_hl(0, 'CursorLineNr', {
     --    fg = '#cfb53b',  -- this is my attempt at making a nice gold
-    --    fg = '#E7C664',  -- this is the actual sonokai yellow
-    fg = '#fadb2f',     -- gruvbox bright yellow
+        fg = '#E7C664',  -- this is the actual sonokai yellow
+    -- fg = '#fadb2f',     -- gruvbox bright yellow
     bold = true,
+    italic = true,
 })
 set.termguicolors = true
 
--- let netrw lump .c and .h files together
-vim.g.netrw_sort_sequence = '[\\/]$,*,\\.bak$,\\.o$,\\*.[h|c]$,\\.info$,\\.swp$,\\.obj$'

@@ -32,3 +32,4 @@ require("core/remap")
 require("core/sets")
 require("core/cmds")
 require("core/autocmds")
+require("core/playground") -- for testing things :3
