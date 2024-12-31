@@ -22,3 +22,12 @@ local autocmd = vim.api.nvim_create_autocmd
 --         end
 --     end
 -- })
+
+autocmd("BufWinEnter", {
+    pattern = 'quickfix',
+    callback = function ()
+        vim.keymap.set('n', '<C-n>', 'j', { buffer = true })
+        vim.keymap.set('n', '<C-p>', 'k', { buffer = true })
+        vim.keymap.set('n', '<C-c>', '<cmd>q<CR>', { buffer = true })
+    end
+})

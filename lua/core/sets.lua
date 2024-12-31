@@ -48,3 +48,11 @@ vim.api.nvim_set_hl(0, 'CursorLineNr', {
 })
 set.termguicolors = true
 
+vim.diagnostic.config({
+    signs = false,
+    update_in_insert = false,
+    virtual_text = {
+ 
+    },
+})
+

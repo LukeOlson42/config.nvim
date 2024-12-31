@@ -35,7 +35,7 @@ return {
             })
 
             vim.api.nvim_create_user_command('Ex', 'Oil', { nargs = 0 })
-            vim.keymap.set('n', '<leader>out', '<cmd>Oil<CR>')
+            vim.keymap.set('n', '<C-o>', '<cmd>Oil<CR>')
         end,
     }
 }

@@ -26,6 +26,7 @@ local config = {
     },
 }
 
+
 require("lazy").setup({ import = "plugins" }, config)
 
 require("core/remap")
