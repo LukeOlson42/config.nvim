@@ -39,20 +39,18 @@ set.inccommand = "split"
 
 -- I like having the current line highlighted
 -- with a nice gold color :)
-vim.api.nvim_set_hl(0, 'CursorLineNr', {
-    --    fg = '#cfb53b',  -- this is my attempt at making a nice gold
-        fg = '#E7C664',  -- this is the actual sonokai yellow
-    -- fg = '#fadb2f',     -- gruvbox bright yellow
-    bold = true,
-    italic = true,
-})
+-- vim.api.nvim_set_hl(0, 'CursorLineNr', {
+--     --    fg = '#cfb53b',  -- this is my attempt at making a nice gold
+--         fg = '#E7C664',  -- this is the actual sonokai yellow
+--     -- fg = '#fadb2f',     -- gruvbox bright yellow
+--     bold = true,
+--     italic = true,
+-- })
 set.termguicolors = true
 
 vim.diagnostic.config({
     signs = false,
     update_in_insert = false,
-    virtual_text = {
- 
-    },
+    virtual_text = {},
 })
 

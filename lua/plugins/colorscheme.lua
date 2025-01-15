@@ -1,22 +1,8 @@
 return {
-    {
-        'ellisonleao/gruvbox.nvim',
-        config = function()
-            require("gruvbox").setup({
-                terminal_colors = true,
-
-                undercurl = false,
-                underline = false,
-
-                bold = true,
-                italic = {
-                    strings = true,
-                    comments = true,
-                },
-
-                dim_inactive = true,
-            })
-            vim.cmd("colorscheme gruvbox")
-        end
-    },
+    'LukeOlson42/simple-green',
+    priority = 1000,
+    config = function ()
+        print('loaded scheme')
+        require('simple-green').setup()
+    end
 }

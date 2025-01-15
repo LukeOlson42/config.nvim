@@ -1,20 +1,15 @@
 return {
-    {
         'nvim-lualine/lualine.nvim',
         dependencies = {'nvim-tree/nvim-web-devicons'},
         config = function()
             local lualine = require('lualine')
+            local simplegreen = require('lualine.themes.simple-green')
             local config = {
                 options = {
                     icons_enabled = false,
-                    theme = 'gruvbox',
+                    theme = simplegreen,
                     component_separators = '|',
                     section_separators = '',
-                    disabled_filetypes = {
-                        statusline = {},
-                        winbar = {},
-                    },
-                    ignore_focus = {},
                     always_divide_middle = true,
                     globalstatus = false,
                     refresh = {
@@ -23,15 +18,10 @@ return {
                 },
                 sections = {
                     lualine_a = {'mode'},
-                    lualine_b = {
-                        {
-                            'branch',
-                        },
-                    },
+                    lualine_b = { 'branch' },
                     lualine_c = {'filename'},
                     lualine_x = {
                         'encoding',
-                        'fileformat',
                         'filetype',
                         {
                             'selectioncount',
@@ -64,17 +54,10 @@ return {
                     lualine_z = {'location'}
                 },
                 inactive_sections = {
-                    lualine_a = {},
                     lualine_b = {'branch'},
                     lualine_c = {'filename'},
                     lualine_x = {'location'},
-                    lualine_y = {},
-                    lualine_z = {}
                 },
-                winbar = {},
-                tabline = {},
-                inactive_winbar = {},
-                extensions = {}
             }
 
             local function insert_component(component)
@@ -84,23 +67,11 @@ return {
             insert_component({
                 -- Lsp server name .
                 function()
-                    local msg = ''
-                    local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-                    local clients = vim.lsp.get_active_clients()
-                    if next(clients) == nil then
-                        return msg
-                    end
-                    for _, client in ipairs(clients) do
-                        local filetypes = client.config.filetypes
-                        if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-                            return client.name
-                        end
-                    end
-                    return msg
+                    local clients = vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf() })
+                    return clients[1].name
                 end,
             })
 
             lualine.setup(config)
         end,
-    }
 }

@@ -5,28 +5,23 @@ return {
     version = '*',
     opts = {
         keymap = {
-            preset = 'super-tab',
+            preset = 'default',
+
             ['<C-space>'] = {},
-            ['<C-e>'] = { 'hide' },
+            ['<C-e>'] = {},
+            ['<C-c>'] = { 'cancel', 'fallback' },
 
-            ['<C-p>'] = { 'select_prev', 'fallback' },
-            ['<C-n>'] = { 'select_next', 'fallback' },
-
-            ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
-            ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
-
-            ['<Tab>'] = {
-                function (cmp)
-                    if cmp.snippet_active() then return cmp.accept()
-                    else return cmp.select_and_accept() end
-                end,
-                'snippet_forward',
-                'fallback',
-            },
+            ['Tab'] = {},
+            ['<S-Tab>'] = {},
         },
 
         completion = {
-            menu = { border = 'none' },
+            menu = {
+                border = 'none',
+                draw = {
+                    treesitter = { 'lsp' },
+                },
+            },
             documentation = {
                 window = {
                     border = 'single'
